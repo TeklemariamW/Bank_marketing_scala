@@ -21,7 +21,7 @@ object Loadfirst {
     df.printSchema()
     df.show(10)
 
-    val dfUpper = df.withColumn("job_upper", upper($"job"))
+    val dfUpper = df.withColumn("job_upper", upper(col("job")))
     dfUpper.show(5)
 
     dfUpper.write.mode( "overwrite").saveAsTable("tekle.bank_marketing_scala")
