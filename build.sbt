@@ -10,6 +10,7 @@ lazy val root = (project in file("."))
 // Define the main class for the project
 mainClass in Compile := Some("CSVTransformations")
 mainClass in Compile := Some("Loadfirst")
+mainClass in Compile := Some("Increamentalload")
 
 
 // https://mvnrepository.com/artifact/org.apache.spark/spark-core
