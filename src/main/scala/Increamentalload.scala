@@ -33,13 +33,13 @@ object Increamentalload {
     on id.
      */
     val incremental_data_df = df_upper.join(existing_hive_data, Seq("id"), "left_anti")
-    print('------------------Incremental data-----------------------')
+    print("------------------Incremental data-----------------------")
     incremental_data_df.show()
 
     //counting the number of the new records added to postgres tables
     val new_records = incremental_data_df.count()
-    print('------------------COUNTING INCREMENT RECORDS ------------')
-    print('new records added count', new_records)
+    print("------------------COUNTING INCREMENT RECORDS ------------")
+    print("new records added count", new_records)
 
     // 5.  Adding the incremental_data DataFrame to the existing hive table
     // Check if there are extra rows in PostgresSQL. if exist => # write & append to the Hive table
