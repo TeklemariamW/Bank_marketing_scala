@@ -27,7 +27,7 @@ object Loadfirst {
     dfUpper.write.mode( "overwrite").saveAsTable("tekle.bank_marketing_scala")
     println("Overwrite to Hive")
 
-    df_hive = spark.read.table("tekle.bank_marketing_scala")
+    val df_hive = spark.read.table("tekle.bank_marketing_scala")
     df_hive.show(3)
 
   }
