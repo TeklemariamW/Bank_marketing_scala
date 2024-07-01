@@ -52,7 +52,7 @@ object IncrementalLoad {
 
       // Read updated data from Hive table and display ordered by id descending
       val updated_hive_data = spark.read.table("tekle.bank_marketing_scala")
-      val df_ordered = updated_hive_data.orderBy(col("id").desc())
+      val df_ordered = updated_hive_data.orderBy(col("id").desc_nulls_last)
       println("Updated Hive table:")
       df_ordered.show(5)
     } finally {
