@@ -28,8 +28,11 @@ object IncrementalLoad {
       val existing_hive_data = spark.read.table("tekle.bank_marketing_scala")
       existing_hive_data.show(5)
 
+      val dfUpper = df.withColumn("job_upper", upper(col("job")))
+      dfUpper.show(5)
+
       // Determine incremental data using left_anti join
-      val incremental_data_df = df.join(existing_hive_data, Seq("id"), "left_anti")
+      val incremental_data_df = dfUpper.join(existing_hive_data, Seq("id"), "left_anti")
       println("------------------Incremental data-----------------------")
       incremental_data_df.show()
 
